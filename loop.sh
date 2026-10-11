@@ -106,7 +106,7 @@ for i in $(seq 1 "$CYCLES"); do
   # running a FULL cycle on Sonnet. The collision guard is left to CYCLE.md:
   # an operator commit landing between here and the session's own fetch
   # would flip it, and the error would go the wrong way.
-  MODEL=claude-opus-5-5
+  MODEL="${PHIL_MODEL:-claude-opus-5-5}"
   MODEL_WHY="tick may run FULL"
   if python3 - <<'PY'
 import datetime as dt, json, re, sys
@@ -133,7 +133,7 @@ for line in open("journal/cycles.log"):
 sys.exit(0 if full >= s["min_full_cycles_per_day"] else 1)
 PY
   then
-    MODEL=claude-sonnet-5
+    MODEL="${PHIL_MODEL:-claude-sonnet-5}"
     MODEL_WHY="LIGHT tick: pacing hold with the daily FULL minimum met"
   fi
   echo "model: $MODEL ($MODEL_WHY)" >&2
