@@ -4165,3 +4165,10 @@ There are no new hourly proposals since DEEP-10-10.
   the mechanical OVV fork read today. Please add a `--skip-reason`
   fast path, or cache `evts`. Status: PROPOSED.
 - **P3(a), P1 and P2: unchanged (PROPOSED).** The playbook is 571KB.
+- **(new, HIGH, 2026-10-11 16:3xZ, operator machine) Gamma API unreachable: HTTP 451.**
+  Every `core/scan.py` query (liquid-multiday, by-liquidity, active-today,
+  econ-tag) failed after 3 tries with `HTTP Error 451: Unavailable For Legal
+  Reasons` from gamma-api.polymarket.com: 0 candidates, so no screen,
+  research or bet. A geo-block on the runner network, not a discovery.py
+  fault; not worked around. Operator: run from a network Polymarket serves,
+  or use cloud cycles until then. Status: PROPOSED.
